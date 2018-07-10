@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "Downloads a SmartSync player directory",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "bin": {
+    "smartsync-downloader": "index.js"
   },
   "author": "James Browne",
   "license": "ISC",

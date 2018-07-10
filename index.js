@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const request = require('request')
 const _ = require('lodash')
 const path = require('path')
@@ -50,6 +51,7 @@ if (options.help) {
 }
 if (!options.dir || !options.url) {
     console.log('See --help for usage')
+    return
 }
 
 let dir = options.dir
@@ -83,4 +85,5 @@ function processDirectory(dir, listing) {
                 fs.outputFile(path.join(dir, name), body)
             });
         })
+
 }
