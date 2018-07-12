@@ -81,9 +81,10 @@ function processDirectory(dir, listing) {
                 requestDirectory(path.join(dir, name), file.path)
                 return
             }
-            request(file.path, function (error, response, body) {
-                fs.outputFile(path.join(dir, name), body)
-            });
+            fs.ensureFile(path.join(dir, name), err => {
+                request(file.path)
+                    .pipe(fs.createWriteStream(path.join(dir, name)))
+            })
         })
 
 }
